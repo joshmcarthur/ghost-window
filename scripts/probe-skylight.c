@@ -37,7 +37,8 @@ int main(void) {
     printf("dlopen %s\n  %s\n", sky_path, sky ? "ok (shared cache is fine)" : dlerror());
 
     void *hi = dlopen(hi_path, RTLD_LAZY | RTLD_LOCAL);
-    printf("dlopen %s\n  %s\n", hi_path, hi ? "ok" : (dlerror() ? dlerror() : "missing on disk; trying RTLD_DEFAULT"));
+    const char *hi_error = hi ? NULL : dlerror();
+    printf("dlopen %s\n  %s\n", hi_path, hi ? "ok" : (hi_error ? hi_error : "failed"));
 
     const char *sky_names[] = {
         "SLSMainConnectionID",

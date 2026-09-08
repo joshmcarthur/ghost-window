@@ -79,7 +79,7 @@ fi
 echo "== dlopen / dlsym probe (source of truth) =="
 PROBE="$(mktemp -t ghost-window-skylight-probe)"
 trap 'rm -f "$PROBE"' EXIT
-cc -o "$PROBE" "$SCRIPT_DIR/probe-skylight.c"
+cc -o "$PROBE" "$SCRIPT_DIR/probe-skylight.c" || exit 1
 "$PROBE"
 status=$?
 
