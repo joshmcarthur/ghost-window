@@ -7,182 +7,186 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A000000000000000000000C8 /* AppNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000064 /* AppNotifications.swift */; };
-		A000000000000000000000C9 /* GhostLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000065 /* GhostLogger.swift */; };
-		A000000000000000000000CA /* GhostWindowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000066 /* GhostWindowApp.swift */; };
-		A000000000000000000000CB /* GlobalShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000067 /* GlobalShortcut.swift */; };
-		A000000000000000000000CC /* LaunchAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000068 /* LaunchAtLogin.swift */; };
-		A000000000000000000000CD /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000069 /* MenuBarController.swift */; };
-		A000000000000000000000CE /* Permissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000006A /* Permissions.swift */; };
-		A000000000000000000000CF /* RuntimeEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000006B /* RuntimeEnvironment.swift */; };
-		A000000000000000000000D0 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000006C /* Settings.swift */; };
-		A000000000000000000000D1 /* OverlayBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000006D /* OverlayBackend.swift */; };
-		A000000000000000000000D2 /* SkyLightBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000006E /* SkyLightBackend.swift */; };
-		A000000000000000000000D3 /* WindowGhostBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000006F /* WindowGhostBackend.swift */; };
-		A000000000000000000000D4 /* SkyLightBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000070 /* SkyLightBridge.swift */; };
-		A000000000000000000000D5 /* SkyLightWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000071 /* SkyLightWindow.swift */; };
-		A000000000000000000000D6 /* Diagnostics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000072 /* Diagnostics.swift */; };
-		A000000000000000000000D7 /* FrontmostWindowResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000073 /* FrontmostWindowResolver.swift */; };
-		A000000000000000000000D8 /* GhostStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000074 /* GhostStateStore.swift */; };
-		A000000000000000000000D9 /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000075 /* WindowManager.swift */; };
-		A000000000000000000000DA /* WindowReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000076 /* WindowReference.swift */; };
-		A000000000000000000000DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000077 /* Assets.xcassets */; };
-		A000000000000000000000DC /* GhostWindowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000078 /* GhostWindowTests.swift */; };
+		02B71FABF07A4739B7796815 /* Diagnostics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC81778726A1754489B5BFD2 /* Diagnostics.swift */; };
+		08EB92B92807B25156269D11 /* SkyLightBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5DBEF2B614ED6E708F04E /* SkyLightBackend.swift */; };
+		15F6C8BB448466A861C48D40 /* Permissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB325555B0905E7A867F1C75 /* Permissions.swift */; };
+		1E7EBE585A31D1ED27FDE5AE /* SkyLightWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC756E5F316A31E3E69BB85B /* SkyLightWindow.swift */; };
+		2B830ED1A9F8480D90F39F9B /* GhostStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E7DBDF21B19ABE6C39B429 /* GhostStateStore.swift */; };
+		3096B94C128F39B3896CC7BF /* GhostLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565E3CF893E85575A1CA6A22 /* GhostLogger.swift */; };
+		4D5EF60A512760838972B17B /* LaunchAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DCC9BADE71CAFC0E66B442 /* LaunchAtLogin.swift */; };
+		5DD9352BB5B0DA94C0210063 /* GhostWindowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A777453EA61AE57BF515A6 /* GhostWindowTests.swift */; };
+		6D4A13D58A64E5A370650123 /* RuntimeEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820CDC2771BB918724C77F6B /* RuntimeEnvironment.swift */; };
+		70434F1DB9EB0340FF54D6B6 /* SkyLightBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C1C0B2620EEAFA44DD4EFA /* SkyLightBridge.swift */; };
+		73E7F48014A4F551C9FEBC22 /* WindowGhostBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF769C47766428FB8C07433F /* WindowGhostBackend.swift */; };
+		7B8F758DA42F2A2D69CA7184 /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B28ED0F924BBF85EBD681 /* MenuBarController.swift */; };
+		868F2DF2261384ED005CF3EA /* OverlayBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE226D336E124322ACCF327 /* OverlayBackend.swift */; };
+		96AB1BD67A362884F47F82B1 /* GhostWindowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F740C3206754686AE03426 /* GhostWindowApp.swift */; };
+		C9A8CDA379C439A08092021B /* AppNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E04A99E3527592BCEFFD9B2 /* AppNotifications.swift */; };
+		DA6CD10E04524AF0421D9C89 /* FrontmostWindowResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03721D1987798FD3BC66C2DF /* FrontmostWindowResolver.swift */; };
+		DCA78DC641C601CFB73EA2A6 /* GlobalShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C907D20BCFC4385DA32353 /* GlobalShortcut.swift */; };
+		DD031D198C859EBBDC55C0FB /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B7AED99466EE4BA9938CA8 /* Settings.swift */; };
+		DEDFB23A2502B0F00E1B7E79 /* WindowReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75A6F7493CEAC9AE8F828C1 /* WindowReference.swift */; };
+		F21E75D0ECF3FCE31D424A07 /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC972EF062CC4DAD1E74904 /* WindowManager.swift */; };
+		F7A25B3F35CA356B4FC6FCD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BE2145451F7BF84A91F1160 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXFileReference section */
-		A00000000000000000000016 /* GhostWindow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GhostWindow.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A00000000000000000000017 /* GhostWindowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GhostWindowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A00000000000000000000064 /* AppNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotifications.swift; sourceTree = "<group>"; };
-		A00000000000000000000065 /* GhostLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostLogger.swift; sourceTree = "<group>"; };
-		A00000000000000000000066 /* GhostWindowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostWindowApp.swift; sourceTree = "<group>"; };
-		A00000000000000000000067 /* GlobalShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalShortcut.swift; sourceTree = "<group>"; };
-		A00000000000000000000068 /* LaunchAtLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLogin.swift; sourceTree = "<group>"; };
-		A00000000000000000000069 /* MenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
-		A0000000000000000000006A /* Permissions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permissions.swift; sourceTree = "<group>"; };
-		A0000000000000000000006B /* RuntimeEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeEnvironment.swift; sourceTree = "<group>"; };
-		A0000000000000000000006C /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		A0000000000000000000006D /* OverlayBackend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayBackend.swift; sourceTree = "<group>"; };
-		A0000000000000000000006E /* SkyLightBackend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyLightBackend.swift; sourceTree = "<group>"; };
-		A0000000000000000000006F /* WindowGhostBackend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowGhostBackend.swift; sourceTree = "<group>"; };
-		A00000000000000000000070 /* SkyLightBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyLightBridge.swift; sourceTree = "<group>"; };
-		A00000000000000000000071 /* SkyLightWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyLightWindow.swift; sourceTree = "<group>"; };
-		A00000000000000000000072 /* Diagnostics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diagnostics.swift; sourceTree = "<group>"; };
-		A00000000000000000000073 /* FrontmostWindowResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontmostWindowResolver.swift; sourceTree = "<group>"; };
-		A00000000000000000000074 /* GhostStateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostStateStore.swift; sourceTree = "<group>"; };
-		A00000000000000000000075 /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
-		A00000000000000000000076 /* WindowReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowReference.swift; sourceTree = "<group>"; };
-		A00000000000000000000077 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A00000000000000000000078 /* GhostWindowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostWindowTests.swift; sourceTree = "<group>"; };
-		A00000000000000000000079 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A0000000000000000000007A /* GhostWindow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GhostWindow.entitlements; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXGroup section */
-		A00000000000000000000002 /* GhostWindow */ = {
-			isa = PBXGroup;
-			children = (
-				A0000000000000000000000A /* GhostWindow */,
-				A00000000000000000000008 /* GhostWindowTests */,
-				A00000000000000000000009 /* Products */,
-			);
-			name = GhostWindow;
-			sourceTree = "<group>";
-		};
-		A00000000000000000000009 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A00000000000000000000016 /* GhostWindow.app */,
-				A00000000000000000000017 /* GhostWindowTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		A0000000000000000000000A /* GhostWindow */ = {
-			isa = PBXGroup;
-			children = (
-				A00000000000000000000003 /* App */,
-				A00000000000000000000004 /* SkyLight */,
-				A00000000000000000000005 /* Backends */,
-				A00000000000000000000006 /* Windowing */,
-				A00000000000000000000007 /* Resources */,
-			);
-			path = GhostWindow;
-			sourceTree = "<group>";
-		};
-		A00000000000000000000003 /* App */ = {
-			isa = PBXGroup;
-			children = (
-				A00000000000000000000064 /* AppNotifications.swift */,
-				A00000000000000000000065 /* GhostLogger.swift */,
-				A00000000000000000000066 /* GhostWindowApp.swift */,
-				A00000000000000000000067 /* GlobalShortcut.swift */,
-				A00000000000000000000068 /* LaunchAtLogin.swift */,
-				A00000000000000000000069 /* MenuBarController.swift */,
-				A0000000000000000000006A /* Permissions.swift */,
-				A0000000000000000000006B /* RuntimeEnvironment.swift */,
-				A0000000000000000000006C /* Settings.swift */,
-			);
-			path = App;
-			sourceTree = "<group>";
-		};
-		A00000000000000000000004 /* SkyLight */ = {
-			isa = PBXGroup;
-			children = (
-				A00000000000000000000070 /* SkyLightBridge.swift */,
-				A00000000000000000000071 /* SkyLightWindow.swift */,
-			);
-			path = SkyLight;
-			sourceTree = "<group>";
-		};
-		A00000000000000000000005 /* Backends */ = {
-			isa = PBXGroup;
-			children = (
-				A0000000000000000000006D /* OverlayBackend.swift */,
-				A0000000000000000000006E /* SkyLightBackend.swift */,
-				A0000000000000000000006F /* WindowGhostBackend.swift */,
-			);
-			path = Backends;
-			sourceTree = "<group>";
-		};
-		A00000000000000000000006 /* Windowing */ = {
-			isa = PBXGroup;
-			children = (
-				A00000000000000000000072 /* Diagnostics.swift */,
-				A00000000000000000000073 /* FrontmostWindowResolver.swift */,
-				A00000000000000000000074 /* GhostStateStore.swift */,
-				A00000000000000000000075 /* WindowManager.swift */,
-				A00000000000000000000076 /* WindowReference.swift */,
-			);
-			path = Windowing;
-			sourceTree = "<group>";
-		};
-		A00000000000000000000007 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				A00000000000000000000077 /* Assets.xcassets */,
-				A00000000000000000000079 /* Info.plist */,
-				A0000000000000000000007A /* GhostWindow.entitlements */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		A00000000000000000000008 /* GhostWindowTests */ = {
-			isa = PBXGroup;
-			children = (
-				A00000000000000000000078 /* GhostWindowTests.swift */,
-			);
-			path = GhostWindowTests;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
 /* Begin PBXContainerItemProxy section */
-		A00000000000000000000024 /* PBXContainerItemProxy */ = {
+		1D9FB060E9ACA382393FEDC8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = A00000000000000000000001 /* Project object */;
+			containerPortal = 90D31C4A70FD2A67E7CDF31F /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = A00000000000000000000014;
+			remoteGlobalIDString = BC872AA0EB2216F8626B3A20;
 			remoteInfo = GhostWindow;
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXTargetDependency section */
-		A00000000000000000000023 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A00000000000000000000014 /* GhostWindow */;
-			targetProxy = A00000000000000000000024 /* PBXContainerItemProxy */;
+/* Begin PBXFileReference section */
+		03721D1987798FD3BC66C2DF /* FrontmostWindowResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontmostWindowResolver.swift; sourceTree = "<group>"; };
+		2C0B28ED0F924BBF85EBD681 /* MenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
+		3E04A99E3527592BCEFFD9B2 /* AppNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotifications.swift; sourceTree = "<group>"; };
+		45A777453EA61AE57BF515A6 /* GhostWindowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostWindowTests.swift; sourceTree = "<group>"; };
+		565E3CF893E85575A1CA6A22 /* GhostLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostLogger.swift; sourceTree = "<group>"; };
+		72DCC9BADE71CAFC0E66B442 /* LaunchAtLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLogin.swift; sourceTree = "<group>"; };
+		74E7DBDF21B19ABE6C39B429 /* GhostStateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostStateStore.swift; sourceTree = "<group>"; };
+		7BE2145451F7BF84A91F1160 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		820CDC2771BB918724C77F6B /* RuntimeEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeEnvironment.swift; sourceTree = "<group>"; };
+		8FA5DBEF2B614ED6E708F04E /* SkyLightBackend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyLightBackend.swift; sourceTree = "<group>"; };
+		AB325555B0905E7A867F1C75 /* Permissions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permissions.swift; sourceTree = "<group>"; };
+		AF769C47766428FB8C07433F /* WindowGhostBackend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowGhostBackend.swift; sourceTree = "<group>"; };
+		BEC972EF062CC4DAD1E74904 /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
+		C75A6F7493CEAC9AE8F828C1 /* WindowReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowReference.swift; sourceTree = "<group>"; };
+		CE44DBDF46F88EF97AF7F3D0 /* GhostWindowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GhostWindowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDE226D336E124322ACCF327 /* OverlayBackend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayBackend.swift; sourceTree = "<group>"; };
+		E4C907D20BCFC4385DA32353 /* GlobalShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalShortcut.swift; sourceTree = "<group>"; };
+		EC81778726A1754489B5BFD2 /* Diagnostics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diagnostics.swift; sourceTree = "<group>"; };
+		F4B7AED99466EE4BA9938CA8 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		F5C1C0B2620EEAFA44DD4EFA /* SkyLightBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyLightBridge.swift; sourceTree = "<group>"; };
+		F5F740C3206754686AE03426 /* GhostWindowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostWindowApp.swift; sourceTree = "<group>"; };
+		FC756E5F316A31E3E69BB85B /* SkyLightWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyLightWindow.swift; sourceTree = "<group>"; };
+		FF72CE6F1A2488426E42C9C9 /* GhostWindow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GhostWindow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		1A643A34145A0821CD6E7E84 /* GhostWindow */ = {
+			isa = PBXGroup;
+			children = (
+				A3A69B37937E413A565957D3 /* App */,
+				43BA244DB13A141457925B86 /* Backends */,
+				F39A19F5550E121057BE79A6 /* Resources */,
+				56CCD18DA7E2E835F35CF992 /* SkyLight */,
+				8E73886215A89CE3E38C90B7 /* Windowing */,
+			);
+			path = GhostWindow;
+			sourceTree = "<group>";
 		};
-/* End PBXTargetDependency section */
+		1F363FAA816A6C83D65CBFC3 /* GhostWindowTests */ = {
+			isa = PBXGroup;
+			children = (
+				45A777453EA61AE57BF515A6 /* GhostWindowTests.swift */,
+			);
+			path = GhostWindowTests;
+			sourceTree = "<group>";
+		};
+		3D6B5DE913635D2788EFE594 = {
+			isa = PBXGroup;
+			children = (
+				1A643A34145A0821CD6E7E84 /* GhostWindow */,
+				1F363FAA816A6C83D65CBFC3 /* GhostWindowTests */,
+				E029949210365001309104F4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		43BA244DB13A141457925B86 /* Backends */ = {
+			isa = PBXGroup;
+			children = (
+				DDE226D336E124322ACCF327 /* OverlayBackend.swift */,
+				8FA5DBEF2B614ED6E708F04E /* SkyLightBackend.swift */,
+				AF769C47766428FB8C07433F /* WindowGhostBackend.swift */,
+			);
+			path = Backends;
+			sourceTree = "<group>";
+		};
+		56CCD18DA7E2E835F35CF992 /* SkyLight */ = {
+			isa = PBXGroup;
+			children = (
+				F5C1C0B2620EEAFA44DD4EFA /* SkyLightBridge.swift */,
+				FC756E5F316A31E3E69BB85B /* SkyLightWindow.swift */,
+			);
+			path = SkyLight;
+			sourceTree = "<group>";
+		};
+		8E73886215A89CE3E38C90B7 /* Windowing */ = {
+			isa = PBXGroup;
+			children = (
+				EC81778726A1754489B5BFD2 /* Diagnostics.swift */,
+				03721D1987798FD3BC66C2DF /* FrontmostWindowResolver.swift */,
+				74E7DBDF21B19ABE6C39B429 /* GhostStateStore.swift */,
+				BEC972EF062CC4DAD1E74904 /* WindowManager.swift */,
+				C75A6F7493CEAC9AE8F828C1 /* WindowReference.swift */,
+			);
+			path = Windowing;
+			sourceTree = "<group>";
+		};
+		A3A69B37937E413A565957D3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				3E04A99E3527592BCEFFD9B2 /* AppNotifications.swift */,
+				565E3CF893E85575A1CA6A22 /* GhostLogger.swift */,
+				F5F740C3206754686AE03426 /* GhostWindowApp.swift */,
+				E4C907D20BCFC4385DA32353 /* GlobalShortcut.swift */,
+				72DCC9BADE71CAFC0E66B442 /* LaunchAtLogin.swift */,
+				2C0B28ED0F924BBF85EBD681 /* MenuBarController.swift */,
+				AB325555B0905E7A867F1C75 /* Permissions.swift */,
+				820CDC2771BB918724C77F6B /* RuntimeEnvironment.swift */,
+				F4B7AED99466EE4BA9938CA8 /* Settings.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E029949210365001309104F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF72CE6F1A2488426E42C9C9 /* GhostWindow.app */,
+				CE44DBDF46F88EF97AF7F3D0 /* GhostWindowTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F39A19F5550E121057BE79A6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7BE2145451F7BF84A91F1160 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A00000000000000000000014 /* GhostWindow */ = {
+		55B5E107C1857D4A1DE99040 /* GhostWindowTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A00000000000000000000029 /* Build configuration list for PBXNativeTarget "GhostWindow" */;
+			buildConfigurationList = C018703027F3BFF52EDD52C5 /* Build configuration list for PBXNativeTarget "GhostWindowTests" */;
 			buildPhases = (
-				A0000000000000000000001E /* Sources */,
-				A00000000000000000000020 /* Frameworks */,
-				A0000000000000000000001F /* Resources */,
+				6D7BF779899FE55C47924AE7 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4D78899AD9E404EC5AA3C251 /* PBXTargetDependency */,
+			);
+			name = GhostWindowTests;
+			packageProductDependencies = (
+			);
+			productName = GhostWindowTests;
+			productReference = CE44DBDF46F88EF97AF7F3D0 /* GhostWindowTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BC872AA0EB2216F8626B3A20 /* GhostWindow */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 577755C6540D01A749292733 /* Build configuration list for PBXNativeTarget "GhostWindow" */;
+			buildPhases = (
+				C0D9045CD10F5B0176E9DC0D /* Sources */,
+				9CA9B5DDBA35573F2B74F14B /* Resources */,
 			);
 			buildRules = (
 			);
@@ -192,180 +196,265 @@
 			packageProductDependencies = (
 			);
 			productName = GhostWindow;
-			productReference = A00000000000000000000016 /* GhostWindow.app */;
+			productReference = FF72CE6F1A2488426E42C9C9 /* GhostWindow.app */;
 			productType = "com.apple.product-type.application";
-		};
-		A00000000000000000000015 /* GhostWindowTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A0000000000000000000002A /* Build configuration list for PBXNativeTarget "GhostWindowTests" */;
-			buildPhases = (
-				A00000000000000000000021 /* Sources */,
-				A00000000000000000000022 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A00000000000000000000023 /* PBXTargetDependency */,
-			);
-			name = GhostWindowTests;
-			packageProductDependencies = (
-			);
-			productName = GhostWindowTests;
-			productReference = A00000000000000000000017 /* GhostWindowTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		A00000000000000000000001 /* Project object */ = {
+		90D31C4A70FD2A67E7CDF31F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2600;
-				LastUpgradeCheck = 2600;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					A00000000000000000000014 = {
-						CreatedOnToolsVersion = 16.0;
+					55B5E107C1857D4A1DE99040 = {
+						ProvisioningStyle = Manual;
 					};
-					A00000000000000000000015 = {
-						CreatedOnToolsVersion = 16.0;
-						TestTargetID = A00000000000000000000014;
+					BC872AA0EB2216F8626B3A20 = {
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
-			buildConfigurationList = A00000000000000000000028 /* Build configuration list for PBXProject "GhostWindow" */;
-			compatibilityVersion = "Xcode 16.0";
+			buildConfigurationList = 50EFE3B42D688DDF12B8DD8E /* Build configuration list for PBXProject "GhostWindow" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				en,
 			);
-			mainGroup = A00000000000000000000002 /* GhostWindow */;
+			mainGroup = 3D6B5DE913635D2788EFE594;
 			minimizedProjectReferenceProxies = 1;
-			packageReferences = (
-			);
 			preferredProjectObjectVersion = 77;
-			productRefGroup = A00000000000000000000009 /* Products */;
+			productRefGroup = E029949210365001309104F4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A00000000000000000000014 /* GhostWindow */,
-				A00000000000000000000015 /* GhostWindowTests */,
+				BC872AA0EB2216F8626B3A20 /* GhostWindow */,
+				55B5E107C1857D4A1DE99040 /* GhostWindowTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A0000000000000000000001F /* Resources */ = {
+		9CA9B5DDBA35573F2B74F14B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A000000000000000000000DB /* Assets.xcassets in Resources */,
+				F7A25B3F35CA356B4FC6FCD6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXFrameworksBuildPhase section */
-		A00000000000000000000020 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A00000000000000000000022 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		A0000000000000000000001E /* Sources */ = {
+		6D7BF779899FE55C47924AE7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A000000000000000000000C8 /* AppNotifications.swift in Sources */,
-				A000000000000000000000C9 /* GhostLogger.swift in Sources */,
-				A000000000000000000000CA /* GhostWindowApp.swift in Sources */,
-				A000000000000000000000CB /* GlobalShortcut.swift in Sources */,
-				A000000000000000000000CC /* LaunchAtLogin.swift in Sources */,
-				A000000000000000000000CD /* MenuBarController.swift in Sources */,
-				A000000000000000000000CE /* Permissions.swift in Sources */,
-				A000000000000000000000CF /* RuntimeEnvironment.swift in Sources */,
-				A000000000000000000000D0 /* Settings.swift in Sources */,
-				A000000000000000000000D1 /* OverlayBackend.swift in Sources */,
-				A000000000000000000000D2 /* SkyLightBackend.swift in Sources */,
-				A000000000000000000000D3 /* WindowGhostBackend.swift in Sources */,
-				A000000000000000000000D4 /* SkyLightBridge.swift in Sources */,
-				A000000000000000000000D5 /* SkyLightWindow.swift in Sources */,
-				A000000000000000000000D6 /* Diagnostics.swift in Sources */,
-				A000000000000000000000D7 /* FrontmostWindowResolver.swift in Sources */,
-				A000000000000000000000D8 /* GhostStateStore.swift in Sources */,
-				A000000000000000000000D9 /* WindowManager.swift in Sources */,
-				A000000000000000000000DA /* WindowReference.swift in Sources */,
+				5DD9352BB5B0DA94C0210063 /* GhostWindowTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A00000000000000000000021 /* Sources */ = {
+		C0D9045CD10F5B0176E9DC0D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A000000000000000000000DC /* GhostWindowTests.swift in Sources */,
+				C9A8CDA379C439A08092021B /* AppNotifications.swift in Sources */,
+				02B71FABF07A4739B7796815 /* Diagnostics.swift in Sources */,
+				DA6CD10E04524AF0421D9C89 /* FrontmostWindowResolver.swift in Sources */,
+				3096B94C128F39B3896CC7BF /* GhostLogger.swift in Sources */,
+				2B830ED1A9F8480D90F39F9B /* GhostStateStore.swift in Sources */,
+				96AB1BD67A362884F47F82B1 /* GhostWindowApp.swift in Sources */,
+				DCA78DC641C601CFB73EA2A6 /* GlobalShortcut.swift in Sources */,
+				4D5EF60A512760838972B17B /* LaunchAtLogin.swift in Sources */,
+				7B8F758DA42F2A2D69CA7184 /* MenuBarController.swift in Sources */,
+				868F2DF2261384ED005CF3EA /* OverlayBackend.swift in Sources */,
+				15F6C8BB448466A861C48D40 /* Permissions.swift in Sources */,
+				6D4A13D58A64E5A370650123 /* RuntimeEnvironment.swift in Sources */,
+				DD031D198C859EBBDC55C0FB /* Settings.swift in Sources */,
+				08EB92B92807B25156269D11 /* SkyLightBackend.swift in Sources */,
+				70434F1DB9EB0340FF54D6B6 /* SkyLightBridge.swift in Sources */,
+				1E7EBE585A31D1ED27FDE5AE /* SkyLightWindow.swift in Sources */,
+				73E7F48014A4F551C9FEBC22 /* WindowGhostBackend.swift in Sources */,
+				F21E75D0ECF3FCE31D424A07 /* WindowManager.swift in Sources */,
+				DEDFB23A2502B0F00E1B7E79 /* WindowReference.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		4D78899AD9E404EC5AA3C251 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BC872AA0EB2216F8626B3A20 /* GhostWindow */;
+			targetProxy = 1D9FB060E9ACA382393FEDC8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		A00000000000000000000032 /* Debug */ = {
+		561FFFF152179E36FC7F25FA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-
 			};
 			name = Debug;
 		};
-		A00000000000000000000033 /* Release */ = {
+		645D78EEA8EF558A6AE3E407 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GhostWindow/Resources/GhostWindow.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_TESTABILITY = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = GhostWindow/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joshmcarthur.GhostWindow;
+				PRODUCT_NAME = GhostWindow;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		93C86A4DA028A47C53DBD7B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
-
 			};
 			name = Release;
 		};
-		A00000000000000000000034 /* Debug */ = {
+		9860A2AE786B5EC3E41C3A6E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.joshmcarthur.GhostWindowTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GhostWindow.app/Contents/MacOS/GhostWindow";
+			};
+			name = Debug;
+		};
+		9FEBB8A9C77E084DAC451C53 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = GhostWindow/Resources/GhostWindow.entitlements;
 				CODE_SIGN_IDENTITY = "-";
@@ -377,114 +466,63 @@
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = GhostWindow/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.joshmcarthur.GhostWindow;
 				PRODUCT_NAME = GhostWindow;
 				SDKROOT = macosx;
-				SUPPORTED_PLATFORMS = macosx;
-				SWIFT_VERSION = 5.0;
-
 			};
 			name = Debug;
 		};
-		A00000000000000000000035 /* Release */ = {
+		E33B5A366B15F1F23872FA75 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = GhostWindow/Resources/GhostWindow.entitlements;
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_TESTABILITY = YES;
-				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = GhostWindow/Resources/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.joshmcarthur.GhostWindow;
-				PRODUCT_NAME = GhostWindow;
-				SDKROOT = macosx;
-				SUPPORTED_PLATFORMS = macosx;
-				SWIFT_VERSION = 5.0;
-
-			};
-			name = Release;
-		};
-		A00000000000000000000036 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.joshmcarthur.GhostWindowTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SUPPORTED_PLATFORMS = macosx;
-				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GhostWindow.app/Contents/MacOS/GhostWindow";
-				BUNDLE_LOADER = "$(TEST_HOST)";
-
-			};
-			name = Debug;
-		};
-		A00000000000000000000037 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.joshmcarthur.GhostWindowTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SUPPORTED_PLATFORMS = macosx;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GhostWindow.app/Contents/MacOS/GhostWindow";
-				BUNDLE_LOADER = "$(TEST_HOST)";
-
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A00000000000000000000028 /* Build configuration list for PBXProject "GhostWindow" */ = {
+		50EFE3B42D688DDF12B8DD8E /* Build configuration list for PBXProject "GhostWindow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A00000000000000000000032 /* Debug */,
-				A00000000000000000000033 /* Release */,
+				561FFFF152179E36FC7F25FA /* Debug */,
+				93C86A4DA028A47C53DBD7B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
-		A00000000000000000000029 /* Build configuration list for PBXNativeTarget "GhostWindow" */ = {
+		577755C6540D01A749292733 /* Build configuration list for PBXNativeTarget "GhostWindow" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A00000000000000000000034 /* Debug */,
-				A00000000000000000000035 /* Release */,
+				9FEBB8A9C77E084DAC451C53 /* Debug */,
+				645D78EEA8EF558A6AE3E407 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
-		A0000000000000000000002A /* Build configuration list for PBXNativeTarget "GhostWindowTests" */ = {
+		C018703027F3BFF52EDD52C5 /* Build configuration list for PBXNativeTarget "GhostWindowTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A00000000000000000000036 /* Debug */,
-				A00000000000000000000037 /* Release */,
+				9860A2AE786B5EC3E41C3A6E /* Debug */,
+				E33B5A366B15F1F23872FA75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = A00000000000000000000001 /* Project object */;
+	rootObject = 90D31C4A70FD2A67E7CDF31F /* Project object */;
 }
