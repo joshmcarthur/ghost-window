@@ -35,6 +35,24 @@ Ad-hoc code signing is enough for local use. Do not enable App Sandbox; private 
 
 After building, drag `GhostWindow.app` to `/Applications` if you want Launch at Login to work reliably.
 
+## Continuous integration
+
+Pull requests and pushes to `main` run on GitHub-hosted **macOS 26 Apple Silicon** runners (`macos-26`). The workflow:
+
+1. Prints `sw_vers` and the selected Xcode/SDK
+2. Runs `scripts/discover-skylight.sh` against the runner’s SkyLight.framework
+3. Builds `GhostWindow.xcodeproj`
+4. Runs `GhostWindowTests` (including a check that `SLSSetWindowAlpha` actually `dlsym`s)
+
+See [`.github/workflows/ci.yml`](.github/workflows/ci.yml). macOS runners are billed at a higher minute multiplier than Linux; this repo uses a single job.
+
+To run the same commands locally:
+
+```bash
+./scripts/discover-skylight.sh
+xcodebuild -project GhostWindow.xcodeproj -scheme GhostWindow -configuration Debug -destination 'platform=macOS' CODE_SIGNING_ALLOWED=NO test
+```
+
 ## How to grant Accessibility permission
 
 Ghost Window needs Accessibility **only to identify** the focused window. It does not type, click, or read document contents.
@@ -182,4 +200,4 @@ On a Mac:
 xcodebuild -project GhostWindow.xcodeproj -scheme GhostWindow -destination 'platform=macOS' test
 ```
 
-Unit tests cover exclusions, persisted ghost state, opacity presets, and error copy. They cannot prove WindowServer alpha on Linux.
+Unit tests cover exclusions, persisted ghost state, opacity presets, error copy, and that SkyLight symbols resolve on macOS. They cannot prove that cross-process alpha writes succeed under SIP.

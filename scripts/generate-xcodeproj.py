@@ -14,6 +14,7 @@ SOURCES = [
     "GhostWindow/App/LaunchAtLogin.swift",
     "GhostWindow/App/MenuBarController.swift",
     "GhostWindow/App/Permissions.swift",
+    "GhostWindow/App/RuntimeEnvironment.swift",
     "GhostWindow/App/Settings.swift",
     "GhostWindow/Backends/OverlayBackend.swift",
     "GhostWindow/Backends/SkyLightBackend.swift",
