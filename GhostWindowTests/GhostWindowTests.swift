@@ -101,3 +101,32 @@ final class GhostErrorTests: XCTestCase {
         }
     }
 }
+
+final class SkyLightBridgeTests: XCTestCase {
+    func testSkyLightFrameworkLoadsOnMac() {
+        XCTAssertTrue(
+            SkyLightBridge.isAvailable,
+            "SkyLight must load on the CI Mac. Report:\n\(SkyLightBridge.loadedSymbolReport())"
+        )
+        XCTAssertNotNil(SkyLightBridge.connection())
+        XCTAssertNotNil(SkyLightBridge.setWindowAlpha)
+        XCTAssertNotNil(SkyLightBridge.getWindowAlpha)
+        XCTAssertNotNil(SkyLightBridge.setWindowOpacity)
+        XCTAssertNotNil(SkyLightBridge.mainConnectionID)
+    }
+
+    func testAXWindowLookupSymbolLoads() {
+        XCTAssertNotNil(
+            SkyLightBridge.axUIElementGetWindow,
+            "_AXUIElementGetWindow should resolve from HIServices"
+        )
+    }
+}
+
+final class RuntimeEnvironmentTests: XCTestCase {
+    func testTestRunDoesNotPromptForPermissions() {
+        XCTAssertTrue(RuntimeEnvironment.isRunningTests)
+        XCTAssertFalse(RuntimeEnvironment.shouldPromptForPermissions)
+        XCTAssertFalse(RuntimeEnvironment.shouldRegisterLaunchSideEffects)
+    }
+}

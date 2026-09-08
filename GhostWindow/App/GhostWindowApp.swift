@@ -28,6 +28,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         NSApp.setActivationPolicy(.accessory)
         GhostLogger.log("Starting")
         GhostLogger.log(SkyLightBridge.loadedSymbolReport().replacingOccurrences(of: "\n", with: " | "))
+
+        guard RuntimeEnvironment.shouldRegisterLaunchSideEffects else {
+            GhostLogger.log("Skipping shortcut and permission prompts (tests or CI)")
+            return
+        }
+
         AppNotifications.requestAuthorization()
         shortcut.register { [weak self] in
             self?.windowManager.toggleFrontmost()

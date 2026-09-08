@@ -9,6 +9,9 @@ enum Permissions {
 
     static func ensureAccessibility() throws {
         if AXIsProcessTrusted() { return }
+        guard RuntimeEnvironment.shouldPromptForPermissions else {
+            throw GhostError.accessibilityDenied
+        }
 
         let options = [kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true] as CFDictionary
         _ = AXIsProcessTrustedWithOptions(options)
@@ -22,6 +25,9 @@ enum Permissions {
 
     static func ensureScreenRecording() throws {
         if CGPreflightScreenCaptureAccess() { return }
+        guard RuntimeEnvironment.shouldPromptForPermissions else {
+            throw GhostBackendError.screenRecordingRequired
+        }
         _ = CGRequestScreenCaptureAccess()
         GhostLogger.log("Requested Screen Recording permission for overlay fallback")
         throw GhostBackendError.screenRecordingRequired
