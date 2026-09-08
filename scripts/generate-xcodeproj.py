@@ -114,7 +114,7 @@ lines.append("{")
 lines.append("\tarchiveVersion = 1;")
 lines.append("\tclasses = {")
 lines.append("\t};")
-lines.append("\tobjectVersion = 56;")
+lines.append("\tobjectVersion = 77;")
 lines.append("\tobjects = {")
 lines.append("")
 lines.append("/* Begin PBXBuildFile section */")
@@ -144,11 +144,13 @@ def group(gid, name, children, path=None):
     lines.append("\t\t\t);")
     if path:
         lines.append(f"\t\t\tpath = {path};")
+    elif name:
+        lines.append(f"\t\t\tname = {name};")
     lines.append(f'\t\t\tsourceTree = "<group>";')
     lines.append("\t\t};")
 
 lines.append("/* Begin PBXGroup section */")
-group(ids["group_root"], "", [
+group(ids["group_root"], "GhostWindow", [
     f'{ids["group_src"]} /* GhostWindow */,',
     f'{ids["group_tests"]} /* GhostWindowTests */,',
     f'{ids["group_products"]} /* Products */,',
@@ -205,6 +207,7 @@ lines.append(f'\t\t\ttargetProxy = {ids["container_proxy"]} /* PBXContainerItemP
 lines.append("\t\t};")
 lines.append("/* End PBXTargetDependency section */")
 lines.append("")
+lines.append("/* Begin PBXNativeTarget section */")
 lines.append(f'\t\t{ids["target_app"]} /* GhostWindow */ = {{')
 lines.append("\t\t\tisa = PBXNativeTarget;")
 lines.append('\t\t\tbuildConfigurationList = %s /* Build configuration list for PBXNativeTarget "GhostWindow" */;' % ids["conf_app"])
@@ -218,6 +221,8 @@ lines.append("\t\t\t);")
 lines.append("\t\t\tdependencies = (")
 lines.append("\t\t\t);")
 lines.append('\t\t\tname = GhostWindow;')
+lines.append("\t\t\tpackageProductDependencies = (")
+lines.append("\t\t\t);")
 lines.append('\t\t\tproductName = GhostWindow;')
 lines.append(f'\t\t\tproductReference = {ids["product_app"]} /* GhostWindow.app */;')
 lines.append('\t\t\tproductType = "com.apple.product-type.application";')
@@ -234,6 +239,9 @@ lines.append("\t\t\t);")
 lines.append("\t\t\tdependencies = (")
 lines.append(f'\t\t\t\t{ids["target_dep"]} /* PBXTargetDependency */,')
 lines.append("\t\t\t);")
+lines.append("\t\t\tname = GhostWindowTests;")
+lines.append("\t\t\tpackageProductDependencies = (")
+lines.append("\t\t\t);")
 lines.append("\t\t\tproductName = GhostWindowTests;")
 lines.append(f'\t\t\tproductReference = {ids["product_tests"]} /* GhostWindowTests.xctest */;')
 lines.append('\t\t\tproductType = "com.apple.product-type.bundle.unit-test";')
@@ -246,8 +254,8 @@ lines.append(f'\t\t{ids["project"]} /* Project object */ = {{')
 lines.append("\t\t\tisa = PBXProject;")
 lines.append("\t\t\tattributes = {")
 lines.append("\t\t\t\tBuildIndependentTargetsInParallel = 1;")
-lines.append('\t\t\t\tLastSwiftUpdateCheck = 1600;')
-lines.append('\t\t\t\tLastUpgradeCheck = 1600;')
+lines.append('\t\t\t\tLastSwiftUpdateCheck = 2600;')
+lines.append('\t\t\t\tLastUpgradeCheck = 2600;')
 lines.append("\t\t\t\tTargetAttributes = {")
 lines.append(f'\t\t\t\t\t{ids["target_app"]} = {{')
 lines.append("\t\t\t\t\t\tCreatedOnToolsVersion = 16.0;")
@@ -259,14 +267,18 @@ lines.append("\t\t\t\t\t};")
 lines.append("\t\t\t\t};")
 lines.append("\t\t\t};")
 lines.append('\t\t\tbuildConfigurationList = %s /* Build configuration list for PBXProject "GhostWindow" */;' % ids["conf_project"])
-lines.append('\t\t\tcompatibilityVersion = "Xcode 14.0";')
+lines.append('\t\t\tcompatibilityVersion = "Xcode 16.0";')
 lines.append('\t\t\tdevelopmentRegion = en;')
 lines.append("\t\t\thasScannedForEncodings = 0;")
 lines.append("\t\t\tknownRegions = (")
 lines.append("\t\t\t\ten,")
 lines.append("\t\t\t\tBase,")
 lines.append("\t\t\t);")
-lines.append(f'\t\t\tmainGroup = {ids["group_root"]};')
+lines.append(f'\t\t\tmainGroup = {ids["group_root"]} /* GhostWindow */;')
+lines.append("\t\t\tminimizedProjectReferenceProxies = 1;")
+lines.append("\t\t\tpackageReferences = (")
+lines.append("\t\t\t);")
+lines.append("\t\t\tpreferredProjectObjectVersion = 77;")
 lines.append(f'\t\t\tproductRefGroup = {ids["group_products"]} /* Products */;')
 lines.append('\t\t\tprojectDirPath = "";')
 lines.append('\t\t\tprojectRoot = "";')
@@ -367,29 +379,34 @@ common_release = """
 app_settings = """
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = GhostWindow/Resources/GhostWindow.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_TESTABILITY = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = GhostWindow/Resources/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/../Frameworks");
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.joshmcarthur.GhostWindow;
 				PRODUCT_NAME = GhostWindow;
-				SWIFT_EMIT_LOC_STRINGS = YES;
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_VERSION = 5.0;
 """
 
 test_settings = """
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.joshmcarthur.GhostWindowTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GhostWindow.app/Contents/MacOS/GhostWindow";
 				BUNDLE_LOADER = "$(TEST_HOST)";
