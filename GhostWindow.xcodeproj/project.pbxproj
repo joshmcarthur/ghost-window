@@ -1,0 +1,464 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A000000000000000000000C8 /* AppNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000064 /* AppNotifications.swift */; };
+		A000000000000000000000C9 /* GhostLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000065 /* GhostLogger.swift */; };
+		A000000000000000000000CA /* GhostWindowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000066 /* GhostWindowApp.swift */; };
+		A000000000000000000000CB /* GlobalShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000067 /* GlobalShortcut.swift */; };
+		A000000000000000000000CC /* LaunchAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000068 /* LaunchAtLogin.swift */; };
+		A000000000000000000000CD /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000069 /* MenuBarController.swift */; };
+		A000000000000000000000CE /* Permissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000006A /* Permissions.swift */; };
+		A000000000000000000000CF /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000006B /* Settings.swift */; };
+		A000000000000000000000D0 /* OverlayBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000006C /* OverlayBackend.swift */; };
+		A000000000000000000000D1 /* SkyLightBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000006D /* SkyLightBackend.swift */; };
+		A000000000000000000000D2 /* WindowGhostBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000006E /* WindowGhostBackend.swift */; };
+		A000000000000000000000D3 /* SkyLightBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0000000000000000000006F /* SkyLightBridge.swift */; };
+		A000000000000000000000D4 /* SkyLightWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000070 /* SkyLightWindow.swift */; };
+		A000000000000000000000D5 /* Diagnostics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000071 /* Diagnostics.swift */; };
+		A000000000000000000000D6 /* FrontmostWindowResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000072 /* FrontmostWindowResolver.swift */; };
+		A000000000000000000000D7 /* GhostStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000073 /* GhostStateStore.swift */; };
+		A000000000000000000000D8 /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000074 /* WindowManager.swift */; };
+		A000000000000000000000D9 /* WindowReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000075 /* WindowReference.swift */; };
+		A000000000000000000000DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000076 /* Assets.xcassets */; };
+		A000000000000000000000DB /* GhostWindowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000000000000000000077 /* GhostWindowTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A00000000000000000000016 /* GhostWindow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GhostWindow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A00000000000000000000017 /* GhostWindowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GhostWindowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A00000000000000000000064 /* AppNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotifications.swift; sourceTree = "<group>"; };
+		A00000000000000000000065 /* GhostLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostLogger.swift; sourceTree = "<group>"; };
+		A00000000000000000000066 /* GhostWindowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostWindowApp.swift; sourceTree = "<group>"; };
+		A00000000000000000000067 /* GlobalShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalShortcut.swift; sourceTree = "<group>"; };
+		A00000000000000000000068 /* LaunchAtLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLogin.swift; sourceTree = "<group>"; };
+		A00000000000000000000069 /* MenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
+		A0000000000000000000006A /* Permissions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permissions.swift; sourceTree = "<group>"; };
+		A0000000000000000000006B /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		A0000000000000000000006C /* OverlayBackend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayBackend.swift; sourceTree = "<group>"; };
+		A0000000000000000000006D /* SkyLightBackend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyLightBackend.swift; sourceTree = "<group>"; };
+		A0000000000000000000006E /* WindowGhostBackend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowGhostBackend.swift; sourceTree = "<group>"; };
+		A0000000000000000000006F /* SkyLightBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyLightBridge.swift; sourceTree = "<group>"; };
+		A00000000000000000000070 /* SkyLightWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyLightWindow.swift; sourceTree = "<group>"; };
+		A00000000000000000000071 /* Diagnostics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diagnostics.swift; sourceTree = "<group>"; };
+		A00000000000000000000072 /* FrontmostWindowResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontmostWindowResolver.swift; sourceTree = "<group>"; };
+		A00000000000000000000073 /* GhostStateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostStateStore.swift; sourceTree = "<group>"; };
+		A00000000000000000000074 /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
+		A00000000000000000000075 /* WindowReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowReference.swift; sourceTree = "<group>"; };
+		A00000000000000000000076 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A00000000000000000000077 /* GhostWindowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostWindowTests.swift; sourceTree = "<group>"; };
+		A00000000000000000000078 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A00000000000000000000079 /* GhostWindow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GhostWindow.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		A00000000000000000000002 /*  */ = {
+			isa = PBXGroup;
+			children = (
+				A0000000000000000000000A /* GhostWindow */,
+				A00000000000000000000008 /* GhostWindowTests */,
+				A00000000000000000000009 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A00000000000000000000009 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000016 /* GhostWindow.app */,
+				A00000000000000000000017 /* GhostWindowTests.xctest */,
+			);
+			sourceTree = "<group>";
+		};
+		A0000000000000000000000A /* GhostWindow */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000003 /* App */,
+				A00000000000000000000004 /* SkyLight */,
+				A00000000000000000000005 /* Backends */,
+				A00000000000000000000006 /* Windowing */,
+				A00000000000000000000007 /* Resources */,
+			);
+			path = GhostWindow;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000003 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000064 /* AppNotifications.swift */,
+				A00000000000000000000065 /* GhostLogger.swift */,
+				A00000000000000000000066 /* GhostWindowApp.swift */,
+				A00000000000000000000067 /* GlobalShortcut.swift */,
+				A00000000000000000000068 /* LaunchAtLogin.swift */,
+				A00000000000000000000069 /* MenuBarController.swift */,
+				A0000000000000000000006A /* Permissions.swift */,
+				A0000000000000000000006B /* Settings.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000004 /* SkyLight */ = {
+			isa = PBXGroup;
+			children = (
+				A0000000000000000000006F /* SkyLightBridge.swift */,
+				A00000000000000000000070 /* SkyLightWindow.swift */,
+			);
+			path = SkyLight;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000005 /* Backends */ = {
+			isa = PBXGroup;
+			children = (
+				A0000000000000000000006C /* OverlayBackend.swift */,
+				A0000000000000000000006D /* SkyLightBackend.swift */,
+				A0000000000000000000006E /* WindowGhostBackend.swift */,
+			);
+			path = Backends;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000006 /* Windowing */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000071 /* Diagnostics.swift */,
+				A00000000000000000000072 /* FrontmostWindowResolver.swift */,
+				A00000000000000000000073 /* GhostStateStore.swift */,
+				A00000000000000000000074 /* WindowManager.swift */,
+				A00000000000000000000075 /* WindowReference.swift */,
+			);
+			path = Windowing;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000007 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000076 /* Assets.xcassets */,
+				A00000000000000000000078 /* Info.plist */,
+				A00000000000000000000079 /* GhostWindow.entitlements */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A00000000000000000000008 /* GhostWindowTests */ = {
+			isa = PBXGroup;
+			children = (
+				A00000000000000000000077 /* GhostWindowTests.swift */,
+			);
+			path = GhostWindowTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXContainerItemProxy section */
+		A00000000000000000000024 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A00000000000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A00000000000000000000014;
+			remoteInfo = GhostWindow;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXTargetDependency section */
+		A00000000000000000000023 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A00000000000000000000014 /* GhostWindow */;
+			targetProxy = A00000000000000000000024 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+		A00000000000000000000014 /* GhostWindow */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A00000000000000000000029 /* Build configuration list for PBXNativeTarget "GhostWindow" */;
+			buildPhases = (
+				A0000000000000000000001E /* Sources */,
+				A00000000000000000000020 /* Frameworks */,
+				A0000000000000000000001F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GhostWindow;
+			productName = GhostWindow;
+			productReference = A00000000000000000000016 /* GhostWindow.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A00000000000000000000015 /* GhostWindowTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A0000000000000000000002A /* Build configuration list for PBXNativeTarget "GhostWindowTests" */;
+			buildPhases = (
+				A00000000000000000000021 /* Sources */,
+				A00000000000000000000022 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A00000000000000000000023 /* PBXTargetDependency */,
+			);
+			productName = GhostWindowTests;
+			productReference = A00000000000000000000017 /* GhostWindowTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A00000000000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					A00000000000000000000014 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					A00000000000000000000015 = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = A00000000000000000000014;
+					};
+				};
+			};
+			buildConfigurationList = A00000000000000000000028 /* Build configuration list for PBXProject "GhostWindow" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A00000000000000000000002;
+			productRefGroup = A00000000000000000000009 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A00000000000000000000014 /* GhostWindow */,
+				A00000000000000000000015 /* GhostWindowTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A0000000000000000000001F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A000000000000000000000DA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A00000000000000000000020 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A00000000000000000000022 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A0000000000000000000001E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A000000000000000000000C8 /* AppNotifications.swift in Sources */,
+				A000000000000000000000C9 /* GhostLogger.swift in Sources */,
+				A000000000000000000000CA /* GhostWindowApp.swift in Sources */,
+				A000000000000000000000CB /* GlobalShortcut.swift in Sources */,
+				A000000000000000000000CC /* LaunchAtLogin.swift in Sources */,
+				A000000000000000000000CD /* MenuBarController.swift in Sources */,
+				A000000000000000000000CE /* Permissions.swift in Sources */,
+				A000000000000000000000CF /* Settings.swift in Sources */,
+				A000000000000000000000D0 /* OverlayBackend.swift in Sources */,
+				A000000000000000000000D1 /* SkyLightBackend.swift in Sources */,
+				A000000000000000000000D2 /* WindowGhostBackend.swift in Sources */,
+				A000000000000000000000D3 /* SkyLightBridge.swift in Sources */,
+				A000000000000000000000D4 /* SkyLightWindow.swift in Sources */,
+				A000000000000000000000D5 /* Diagnostics.swift in Sources */,
+				A000000000000000000000D6 /* FrontmostWindowResolver.swift in Sources */,
+				A000000000000000000000D7 /* GhostStateStore.swift in Sources */,
+				A000000000000000000000D8 /* WindowManager.swift in Sources */,
+				A000000000000000000000D9 /* WindowReference.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A00000000000000000000021 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A000000000000000000000DB /* GhostWindowTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		A00000000000000000000032 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+
+			};
+			name = Debug;
+		};
+		A00000000000000000000033 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+
+			};
+			name = Release;
+		};
+		A00000000000000000000034 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GhostWindow/Resources/GhostWindow.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_TESTABILITY = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = GhostWindow/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/../Frameworks");
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joshmcarthur.GhostWindow;
+				PRODUCT_NAME = GhostWindow;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+
+			};
+			name = Debug;
+		};
+		A00000000000000000000035 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GhostWindow/Resources/GhostWindow.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_TESTABILITY = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = GhostWindow/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = ("$(inherited)", "@executable_path/../Frameworks");
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joshmcarthur.GhostWindow;
+				PRODUCT_NAME = GhostWindow;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+
+			};
+			name = Release;
+		};
+		A00000000000000000000036 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joshmcarthur.GhostWindowTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GhostWindow.app/Contents/MacOS/GhostWindow";
+				BUNDLE_LOADER = "$(TEST_HOST)";
+
+			};
+			name = Debug;
+		};
+		A00000000000000000000037 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joshmcarthur.GhostWindowTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GhostWindow.app/Contents/MacOS/GhostWindow";
+				BUNDLE_LOADER = "$(TEST_HOST)";
+
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A00000000000000000000028 /* Build configuration list for PBXProject "GhostWindow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A00000000000000000000032 /* Debug */,
+				A00000000000000000000033 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A00000000000000000000029 /* Build configuration list for PBXNativeTarget "GhostWindow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A00000000000000000000034 /* Debug */,
+				A00000000000000000000035 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A0000000000000000000002A /* Build configuration list for PBXNativeTarget "GhostWindowTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A00000000000000000000036 /* Debug */,
+				A00000000000000000000037 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A00000000000000000000001 /* Project object */;
+}
