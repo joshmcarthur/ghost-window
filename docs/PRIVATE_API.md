@@ -164,7 +164,7 @@ strings /System/Library/PrivateFrameworks/SkyLight.framework/SkyLight \
 grep SLSSetWindowAlpha "$SDKROOT/System/Library/PrivateFrameworks/SkyLight.framework/SkyLight.tbd"
 ```
 
-There is no Swift overlay module. Always use `dlopen` / `dlsym`.
+On modern macOS the SkyLight Mach-O is often **only in the dyld shared cache**. `nm` on `/System/Library/PrivateFrameworks/SkyLight.framework/SkyLight` can fail even though `dlopen`/`dlsym` succeed. Ghost Window and `scripts/discover-skylight.sh` treat `dlsym` as the source of truth.
 
 ## Proof of concept (on a Mac)
 
