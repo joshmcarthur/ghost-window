@@ -43,10 +43,4 @@ struct GhostedWindowRecord: Hashable, Codable, Sendable {
     var originalAlpha: Float
     var originalIsOpaque: Bool
     var appliedAlpha: Float
-    var backend: BackendKind
-}
-
-enum BackendKind: String, Codable, Sendable {
-    case skyLight
-    case overlay
 }

@@ -46,12 +46,18 @@ final class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
             object: nil
         )
 
-        if !Permissions.isAccessibilityTrusted {
-            GhostLogger.log("Accessibility is not granted yet")
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                try? Permissions.ensureAccessibility()
-            }
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applicationDidBecomeActive),
+            name: NSApplication.didBecomeActiveNotification,
+            object: nil
+        )
+
+        logAccessibilityStatus()
+        if let frontmost = NSWorkspace.shared.frontmostApplication {
+            FrontmostAppTracker.noteActivated(frontmost, selfBundleID: Bundle.main.bundleIdentifier)
         }
+        windowManager.refreshFocusStatus()
     }
 
     func applicationWillTerminate(_ notification: Notification) {
@@ -64,7 +70,24 @@ final class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         false
     }
 
-    @objc private func frontmostChanged() {
+    @objc private func frontmostChanged(_ notification: Notification) {
+        if let app = notification.userInfo?[NSWorkspace.applicationUserInfoKey] as? NSRunningApplication {
+            FrontmostAppTracker.noteActivated(app, selfBundleID: Bundle.main.bundleIdentifier)
+        }
         windowManager.refreshFocusStatus()
+    }
+
+    @objc private func applicationDidBecomeActive() {
+        logAccessibilityStatus()
+        windowManager.refreshFocusStatus()
+    }
+
+    private func logAccessibilityStatus() {
+        let trusted = Permissions.isAccessibilityTrusted
+        let path = Bundle.main.bundlePath
+        GhostLogger.log("Accessibility trusted: \(trusted) | bundle: \(path)")
+        if !trusted {
+            GhostLogger.log("Grant Accessibility for this build in System Settings, then reopen Ghost Window")
+        }
     }
 }

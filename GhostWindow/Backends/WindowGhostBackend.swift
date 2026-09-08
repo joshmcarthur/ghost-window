@@ -1,20 +1,9 @@
 import Foundation
 
-protocol WindowGhostBackend: AnyObject {
-    var kind: BackendKind { get }
-    var isUsable: Bool { get }
-    var requiresScreenRecording: Bool { get }
-
-    func setOpacity(_ opacity: Float, for window: WindowReference) throws
-    func restore(window: WindowReference) throws
-}
-
 enum GhostBackendError: Error, Equatable {
     case backendUnavailable
     case windowNotModifiable(reason: String)
     case operationFailed(String)
-    case screenRecordingRequired
-    case overlayApproximationFailed(String)
     case alphaNotApplied
 
     var userMessage: String {
@@ -25,12 +14,8 @@ enum GhostBackendError: Error, Equatable {
             return "This window cannot be made transparent."
         case .operationFailed:
             return "This window cannot be made transparent."
-        case .screenRecordingRequired:
-            return "Screen Recording permission is required for the overlay fallback."
-        case .overlayApproximationFailed:
-            return "This window cannot be made transparent."
         case .alphaNotApplied:
-            return "WindowServer ignored the opacity change."
+            return "WindowServer ignored the opacity change. macOS blocks third-party apps from changing other apps' window opacity while System Integrity Protection is enabled."
         }
     }
 }

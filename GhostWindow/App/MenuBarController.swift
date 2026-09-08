@@ -13,6 +13,16 @@ struct MenuBarController: View {
                 launchAtLogin = LaunchAtLogin.isEnabled
                 windowManager.refreshFocusStatus()
             }
+        if let error = windowManager.lastError {
+            Text(error)
+                .foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        if windowManager.focusedOwnerName == "Accessibility required" {
+            Button("Open Accessibility Settings…") {
+                Permissions.openAccessibilitySettings()
+            }
+        }
         Divider()
         Button(windowManager.focusedIsGhosted ? "Restore Current Window" : "Ghost Current Window") {
             windowManager.toggleFrontmost()
@@ -38,11 +48,6 @@ struct MenuBarController: View {
         Divider()
 
         Toggle("Launch at Login", isOn: launchAtLoginBinding)
-
-        if windowManager.usingOverlayApproximation {
-            Text("Overlay fallback (approximation)")
-                .foregroundStyle(.secondary)
-        }
 
         Button("Copy Window Diagnostics") {
             windowManager.copyDiagnostics()

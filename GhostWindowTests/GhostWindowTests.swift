@@ -35,6 +35,25 @@ final class WindowExclusionsTests: XCTestCase {
         )
         XCTAssertEqual(reason, "Ghost Window’s own window")
     }
+
+    func testDoesNotExcludeNormalWindowsWithSharingDisabled() {
+        let window = WindowReference(
+            windowID: 2,
+            ownerPID: 99,
+            ownerName: "Google Chrome",
+            layer: 0,
+            bounds: WindowBounds(x: 0, y: 0, width: 800, height: 600),
+            isOnScreen: true,
+            sharingState: 0
+        )
+        let reason = WindowExclusions.exclusionReason(
+            for: window,
+            frontmostBundleID: "com.google.Chrome",
+            selfPID: 42,
+            selfBundleID: "com.joshmcarthur.GhostWindow"
+        )
+        XCTAssertNil(reason)
+    }
 }
 
 final class GhostStateStoreTests: XCTestCase {
@@ -57,15 +76,13 @@ final class GhostStateStoreTests: XCTestCase {
                 window: window,
                 originalAlpha: 1,
                 originalIsOpaque: true,
-                appliedAlpha: 0.5,
-                backend: .skyLight
+                appliedAlpha: 0.5
             )
         )
         XCTAssertTrue(store.isGhosted(99))
 
         let reloaded = GhostStateStore(url: url)
         XCTAssertEqual(reloaded.record(for: 99)?.appliedAlpha, 0.5)
-        XCTAssertEqual(reloaded.record(for: 99)?.backend, .skyLight)
 
         reloaded.pruneMissing { $0 != 99 }
         XCTAssertFalse(reloaded.isGhosted(99))
@@ -78,12 +95,6 @@ final class SettingsTests: XCTestCase {
         XCTAssertTrue(Settings.opacityOptions.contains(0.50))
         XCTAssertEqual(Settings.opacityOptions.count, 5)
     }
-
-    func testBackendKindRoundTrips() throws {
-        let encoded = try JSONEncoder().encode(BackendKind.overlay)
-        let decoded = try JSONDecoder().decode(BackendKind.self, from: encoded)
-        XCTAssertEqual(decoded, .overlay)
-    }
 }
 
 final class GhostErrorTests: XCTestCase {
@@ -92,8 +103,6 @@ final class GhostErrorTests: XCTestCase {
             .backendUnavailable,
             .windowNotModifiable(reason: "system"),
             .operationFailed("fail"),
-            .screenRecordingRequired,
-            .overlayApproximationFailed("no"),
             .alphaNotApplied
         ]
         for error in errors {

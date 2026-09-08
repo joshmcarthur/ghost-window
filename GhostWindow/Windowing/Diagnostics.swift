@@ -14,8 +14,11 @@ enum Diagnostics {
         lines.append("macOS: \(ProcessInfo.processInfo.operatingSystemVersionString)")
         lines.append("Ghost Window PID: \(ProcessInfo.processInfo.processIdentifier)")
         lines.append("Accessibility trusted: \(trusted)")
-        lines.append("Screen recording: \(CGPreflightScreenCaptureAccess())")
-        lines.append("Active backend: \(manager.activeBackendKind.rawValue)")
+        lines.append("SkyLight available: \(SkyLightBridge.isAvailable)")
+        lines.append("Uses SkyLight transactions: \(SkyLightBridge.transactionSetWindowOpaque != nil)")
+        if let lastError = manager.lastError {
+            lines.append("Last error: \(lastError)")
+        }
         lines.append("Configured opacity: \(settings.ghostOpacity)")
         lines.append("Frontmost app name: \(app?.localizedName ?? "none")")
         lines.append("Frontmost bundle id: \(app?.bundleIdentifier ?? "none")")

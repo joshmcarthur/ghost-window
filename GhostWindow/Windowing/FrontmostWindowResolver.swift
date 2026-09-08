@@ -62,9 +62,6 @@ enum WindowExclusions {
         if window.bounds.height < 24 && window.bounds.width > 200 {
             return "menu-bar sized window"
         }
-        if window.sharingState == 0 {
-            return "window sharing is disabled"
-        }
         return nil
     }
 
@@ -80,7 +77,7 @@ enum WindowExclusions {
 
 enum FrontmostWindowResolver {
     static func resolveFrontmost(selfPID: pid_t, selfBundleID: String?) throws -> WindowReference {
-        guard let app = NSWorkspace.shared.frontmostApplication else {
+        guard let app = FrontmostAppTracker.frontmostApplication(selfBundleID: selfBundleID) else {
             throw GhostError.noFrontmostApp
         }
 

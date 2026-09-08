@@ -34,13 +34,19 @@ enum SkyLightWindow {
         let clamped = min(max(alpha, 0), 1)
         let wantsTransparency = clamped < 0.999
 
-        if wantsTransparency {
-            try setOpaqueFlag(false, cid: cid, windowID: windowID)
-            try setAlpha(clamped, cid: cid, windowID: windowID)
-        } else {
-            try setAlpha(1, cid: cid, windowID: windowID)
-            if makeOpaqueWhenFull {
-                try setOpaqueFlag(true, cid: cid, windowID: windowID)
+        try withWindowServerUpdate(cid: cid) {
+            if wantsTransparency {
+                if canApplyViaTransaction {
+                    try applyViaTransaction(alpha: clamped, opaque: false, cid: cid, windowID: windowID)
+                } else {
+                    try setOpaqueFlagDirect(false, cid: cid, windowID: windowID)
+                    try setAlphaDirect(clamped, cid: cid, windowID: windowID)
+                }
+            } else {
+                try setAlphaDirect(1, cid: cid, windowID: windowID)
+                if makeOpaqueWhenFull {
+                    try setOpaqueFlagDirect(true, cid: cid, windowID: windowID)
+                }
             }
         }
 
@@ -50,13 +56,19 @@ enum SkyLightWindow {
     static func restore(_ snapshot: Snapshot, windowID: SkyLightBridge.WindowID) throws {
         let cid = try requireConnection()
         let clamped = min(max(snapshot.alpha, 0), 1)
-        if snapshot.isOpaque && clamped >= 0.999 {
-            try setAlpha(1, cid: cid, windowID: windowID)
-            try setOpaqueFlag(true, cid: cid, windowID: windowID)
-        } else {
-            try setOpaqueFlag(false, cid: cid, windowID: windowID)
-            try setAlpha(clamped, cid: cid, windowID: windowID)
+
+        try withWindowServerUpdate(cid: cid) {
+            if snapshot.isOpaque && clamped >= 0.999 {
+                try setAlphaDirect(1, cid: cid, windowID: windowID)
+                try setOpaqueFlagDirect(true, cid: cid, windowID: windowID)
+            } else if canApplyViaTransaction {
+                try applyViaTransaction(alpha: clamped, opaque: false, cid: cid, windowID: windowID)
+            } else {
+                try setOpaqueFlagDirect(false, cid: cid, windowID: windowID)
+                try setAlphaDirect(clamped, cid: cid, windowID: windowID)
+            }
         }
+
         try verifyAlpha(clamped, cid: cid, windowID: windowID)
     }
 
@@ -105,6 +117,13 @@ enum SkyLightWindow {
 
     // MARK: - Internals
 
+    private static var canApplyViaTransaction: Bool {
+        SkyLightBridge.transactionCreate != nil
+            && SkyLightBridge.transactionCommit != nil
+            && SkyLightBridge.transactionSetWindowOpaque != nil
+            && (SkyLightBridge.transactionSetWindowAlpha != nil || SkyLightBridge.transactionSetWindowSystemAlpha != nil)
+    }
+
     private static func requireConnection() throws -> SkyLightBridge.ConnectionID {
         guard SkyLightBridge.setWindowAlpha != nil else {
             throw OperationError.bridgeUnavailable
@@ -113,6 +132,18 @@ enum SkyLightWindow {
             throw OperationError.connectionUnavailable
         }
         return cid
+    }
+
+    private static func withWindowServerUpdate(cid: SkyLightBridge.ConnectionID, _ body: () throws -> Void) rethrows {
+        if let disableUpdate = SkyLightBridge.disableUpdate {
+            _ = disableUpdate(cid)
+        }
+        defer {
+            if let reenableUpdate = SkyLightBridge.reenableUpdate {
+                _ = reenableUpdate(cid)
+            }
+        }
+        try body()
     }
 
     private static func readAlpha(cid: SkyLightBridge.ConnectionID, windowID: SkyLightBridge.WindowID) throws -> Float {
@@ -136,10 +167,7 @@ enum SkyLightWindow {
         return Bool(opaque)
     }
 
-    private static func setAlpha(_ alpha: Float, cid: SkyLightBridge.ConnectionID, windowID: SkyLightBridge.WindowID) throws {
-        if try applyViaTransaction(alpha: alpha, opaque: nil, cid: cid, windowID: windowID) {
-            return
-        }
+    private static func setAlphaDirect(_ alpha: Float, cid: SkyLightBridge.ConnectionID, windowID: SkyLightBridge.WindowID) throws {
         guard let setWindowAlpha = SkyLightBridge.setWindowAlpha else {
             throw OperationError.bridgeUnavailable
         }
@@ -149,65 +177,54 @@ enum SkyLightWindow {
         }
     }
 
-    private static func setOpaqueFlag(_ isOpaque: Bool, cid: SkyLightBridge.ConnectionID, windowID: SkyLightBridge.WindowID) throws {
-        if try applyViaTransaction(alpha: nil, opaque: isOpaque, cid: cid, windowID: windowID) {
-            return
-        }
-        guard let setWindowOpacity = SkyLightBridge.setWindowOpacity else {
-            return
-        }
+    private static func setOpaqueFlagDirect(_ isOpaque: Bool, cid: SkyLightBridge.ConnectionID, windowID: SkyLightBridge.WindowID) throws {
+        guard let setWindowOpacity = SkyLightBridge.setWindowOpacity else { return }
         let code = setWindowOpacity(cid, windowID, CBool(isOpaque))
         guard code == SkyLightBridge.success else {
             throw OperationError.callFailed(symbol: "SLSSetWindowOpacity", code: code)
         }
     }
 
-    /// Batches alpha + opaque-flag updates when the transaction SPI is present.
-    @discardableResult
     private static func applyViaTransaction(
-        alpha: Float?,
-        opaque: Bool?,
+        alpha: Float,
+        opaque: Bool,
         cid: SkyLightBridge.ConnectionID,
         windowID: SkyLightBridge.WindowID
-    ) throws -> Bool {
+    ) throws {
         guard let transactionCreate = SkyLightBridge.transactionCreate,
-              let transactionCommit = SkyLightBridge.transactionCommit
+              let transactionCommit = SkyLightBridge.transactionCommit,
+              let setOpaque = SkyLightBridge.transactionSetWindowOpaque
         else {
-            return false
+            throw OperationError.bridgeUnavailable
         }
-        guard let transaction = transactionCreate(cid) else { return false }
+        guard let transaction = transactionCreate(cid) else {
+            throw OperationError.callFailed(symbol: "SLSTransactionCreate", code: -1)
+        }
         defer { Unmanaged.passUnretained(transaction).release() }
 
-        if let opaque {
-            guard let setOpaque = SkyLightBridge.transactionSetWindowOpaque else {
-                return false
-            }
-            let code = setOpaque(transaction, windowID, CBool(opaque))
-            if code != SkyLightBridge.success {
-                throw OperationError.callFailed(symbol: "SLSTransactionSetWindowOpaque", code: code)
-            }
+        let opaqueCode = setOpaque(transaction, windowID, CBool(opaque))
+        guard opaqueCode == SkyLightBridge.success else {
+            throw OperationError.callFailed(symbol: "SLSTransactionSetWindowOpaque", code: opaqueCode)
         }
-        if let alpha {
-            if let setAlpha = SkyLightBridge.transactionSetWindowAlpha {
-                let code = setAlpha(transaction, windowID, alpha)
-                if code != SkyLightBridge.success {
-                    throw OperationError.callFailed(symbol: "SLSTransactionSetWindowAlpha", code: code)
-                }
-            } else if let setSystem = SkyLightBridge.transactionSetWindowSystemAlpha {
-                let code = setSystem(transaction, windowID, alpha)
-                if code != SkyLightBridge.success {
-                    throw OperationError.callFailed(symbol: "SLSTransactionSetWindowSystemAlpha", code: code)
-                }
-            } else {
-                return false
+
+        if let setAlpha = SkyLightBridge.transactionSetWindowAlpha {
+            let code = setAlpha(transaction, windowID, alpha)
+            guard code == SkyLightBridge.success else {
+                throw OperationError.callFailed(symbol: "SLSTransactionSetWindowAlpha", code: code)
             }
+        } else if let setSystemAlpha = SkyLightBridge.transactionSetWindowSystemAlpha {
+            let code = setSystemAlpha(transaction, windowID, alpha)
+            guard code == SkyLightBridge.success else {
+                throw OperationError.callFailed(symbol: "SLSTransactionSetWindowSystemAlpha", code: code)
+            }
+        } else {
+            throw OperationError.bridgeUnavailable
         }
 
         let commit = transactionCommit(transaction, 1)
         guard commit == SkyLightBridge.success else {
             throw OperationError.callFailed(symbol: "SLSTransactionCommit", code: commit)
         }
-        return true
     }
 
     private static func verifyAlpha(
@@ -215,9 +232,14 @@ enum SkyLightWindow {
         cid: SkyLightBridge.ConnectionID,
         windowID: SkyLightBridge.WindowID
     ) throws {
-        let actual = (try? readAlpha(cid: cid, windowID: windowID)) ?? cgWindowListAlpha(windowID: windowID)
-        guard let actual else { return }
+        guard let getWindowAlpha = SkyLightBridge.getWindowAlpha else { return }
+        var actual: Float = 0
+        guard getWindowAlpha(cid, windowID, &actual) == SkyLightBridge.success else {
+            GhostLogger.log("Skipping alpha verify: SLSGetWindowAlpha unavailable for window \(windowID)")
+            return
+        }
         if abs(actual - expected) > 0.08 {
+            GhostLogger.log("Alpha verify mismatch for window \(windowID): expected \(expected), read \(actual)")
             throw OperationError.alphaNotApplied(expected: expected, actual: actual)
         }
     }

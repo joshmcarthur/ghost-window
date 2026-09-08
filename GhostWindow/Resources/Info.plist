@@ -30,7 +30,5 @@
 	<string>NSApplication</string>
 	<key>NSAccessibilityUsageDescription</key>
 	<string>Ghost Window uses Accessibility to identify the currently focused window so it can change that window’s real opacity. It does not read document contents or inject keystrokes.</string>
-	<key>NSScreenCaptureUsageDescription</key>
-	<string>Ghost Window only uses Screen Recording if the native WindowServer opacity API cannot change the real window. In that case it shows an approximate click-through overlay and labels it as a fallback.</string>
 </dict>
 </plist>

@@ -19,11 +19,11 @@
 		70434F1DB9EB0340FF54D6B6 /* SkyLightBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C1C0B2620EEAFA44DD4EFA /* SkyLightBridge.swift */; };
 		73E7F48014A4F551C9FEBC22 /* WindowGhostBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF769C47766428FB8C07433F /* WindowGhostBackend.swift */; };
 		7B8F758DA42F2A2D69CA7184 /* MenuBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B28ED0F924BBF85EBD681 /* MenuBarController.swift */; };
-		868F2DF2261384ED005CF3EA /* OverlayBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE226D336E124322ACCF327 /* OverlayBackend.swift */; };
 		96AB1BD67A362884F47F82B1 /* GhostWindowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F740C3206754686AE03426 /* GhostWindowApp.swift */; };
 		C9A8CDA379C439A08092021B /* AppNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E04A99E3527592BCEFFD9B2 /* AppNotifications.swift */; };
 		DA6CD10E04524AF0421D9C89 /* FrontmostWindowResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03721D1987798FD3BC66C2DF /* FrontmostWindowResolver.swift */; };
 		DCA78DC641C601CFB73EA2A6 /* GlobalShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C907D20BCFC4385DA32353 /* GlobalShortcut.swift */; };
+		E1A2B3C4D5E6F708192A3B4C /* FrontmostAppTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F60718293A4B5C /* FrontmostAppTracker.swift */; };
 		DD031D198C859EBBDC55C0FB /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B7AED99466EE4BA9938CA8 /* Settings.swift */; };
 		DEDFB23A2502B0F00E1B7E79 /* WindowReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75A6F7493CEAC9AE8F828C1 /* WindowReference.swift */; };
 		F21E75D0ECF3FCE31D424A07 /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC972EF062CC4DAD1E74904 /* WindowManager.swift */; };
@@ -42,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		03721D1987798FD3BC66C2DF /* FrontmostWindowResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontmostWindowResolver.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F60718293A4B5C /* FrontmostAppTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontmostAppTracker.swift; sourceTree = "<group>"; };
 		2C0B28ED0F924BBF85EBD681 /* MenuBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarController.swift; sourceTree = "<group>"; };
 		3E04A99E3527592BCEFFD9B2 /* AppNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotifications.swift; sourceTree = "<group>"; };
 		45A777453EA61AE57BF515A6 /* GhostWindowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhostWindowTests.swift; sourceTree = "<group>"; };
@@ -56,7 +57,6 @@
 		BEC972EF062CC4DAD1E74904 /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
 		C75A6F7493CEAC9AE8F828C1 /* WindowReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowReference.swift; sourceTree = "<group>"; };
 		CE44DBDF46F88EF97AF7F3D0 /* GhostWindowTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GhostWindowTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DDE226D336E124322ACCF327 /* OverlayBackend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayBackend.swift; sourceTree = "<group>"; };
 		E4C907D20BCFC4385DA32353 /* GlobalShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalShortcut.swift; sourceTree = "<group>"; };
 		EC81778726A1754489B5BFD2 /* Diagnostics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diagnostics.swift; sourceTree = "<group>"; };
 		F4B7AED99466EE4BA9938CA8 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -99,7 +99,6 @@
 		43BA244DB13A141457925B86 /* Backends */ = {
 			isa = PBXGroup;
 			children = (
-				DDE226D336E124322ACCF327 /* OverlayBackend.swift */,
 				8FA5DBEF2B614ED6E708F04E /* SkyLightBackend.swift */,
 				AF769C47766428FB8C07433F /* WindowGhostBackend.swift */,
 			);
@@ -119,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				EC81778726A1754489B5BFD2 /* Diagnostics.swift */,
+				A1B2C3D4E5F60718293A4B5C /* FrontmostAppTracker.swift */,
 				03721D1987798FD3BC66C2DF /* FrontmostWindowResolver.swift */,
 				74E7DBDF21B19ABE6C39B429 /* GhostStateStore.swift */,
 				BEC972EF062CC4DAD1E74904 /* WindowManager.swift */,
@@ -262,6 +262,7 @@
 			files = (
 				C9A8CDA379C439A08092021B /* AppNotifications.swift in Sources */,
 				02B71FABF07A4739B7796815 /* Diagnostics.swift in Sources */,
+				E1A2B3C4D5E6F708192A3B4C /* FrontmostAppTracker.swift in Sources */,
 				DA6CD10E04524AF0421D9C89 /* FrontmostWindowResolver.swift in Sources */,
 				3096B94C128F39B3896CC7BF /* GhostLogger.swift in Sources */,
 				2B830ED1A9F8480D90F39F9B /* GhostStateStore.swift in Sources */,
@@ -269,7 +270,6 @@
 				DCA78DC641C601CFB73EA2A6 /* GlobalShortcut.swift in Sources */,
 				4D5EF60A512760838972B17B /* LaunchAtLogin.swift in Sources */,
 				7B8F758DA42F2A2D69CA7184 /* MenuBarController.swift in Sources */,
-				868F2DF2261384ED005CF3EA /* OverlayBackend.swift in Sources */,
 				15F6C8BB448466A861C48D40 /* Permissions.swift in Sources */,
 				6D4A13D58A64E5A370650123 /* RuntimeEnvironment.swift in Sources */,
 				DD031D198C859EBBDC55C0FB /* Settings.swift in Sources */,
@@ -361,8 +361,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = GhostWindow/Resources/GhostWindow.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T86Z8SF4GG;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -437,8 +437,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T86Z8SF4GG;
 				COMBINE_HIDPI_IMAGES = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -457,8 +457,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = GhostWindow/Resources/GhostWindow.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T86Z8SF4GG;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -477,8 +477,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T86Z8SF4GG;
 				COMBINE_HIDPI_IMAGES = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -1,5 +1,7 @@
 # Ghost Window
 
+> **Status:** Archived. On macOS 26 with System Integrity Protection enabled, this does not work as a personal utility. WindowServer accepts SkyLight opacity calls from a third-party app but silently ignores them for other apps’ windows. **AppleScript**, **System Events**, and **Shortcuts** also cannot set per-window opacity — there is no public API for that. Tools like yabai rely on private SkyLight APIs with Dock injection and typically require SIP to be disabled. This repo is kept only as a reference experiment.
+
 A tiny experimental macOS menu-bar utility that toggles the **real** opacity of the frontmost application window with **⌘⇧G**.
 
 Press once and the focused window is faded to the configured opacity (default **50%**). Press again and it is restored to the opacity it had before Ghost Window touched it.
@@ -11,9 +13,8 @@ This is **not** an App Store app. It uses private WindowServer / SkyLight APIs.
 1. Finds the frontmost app and its focused window (Accessibility + `CGWindowListCopyWindowInfo`).
 2. Resolves that window’s WindowServer ID (`CGWindowID` / `_AXUIElementGetWindow`).
 3. Calls SkyLight to set **actual window alpha** (`SLSSetWindowAlpha`) and the compositor’s opaque flag (`SLSSetWindowOpacity`).
-4. If WindowServer silently ignores the write, falls back to a **labelled overlay approximation** (ScreenCaptureKit). That fallback does **not** modify the real window.
 
-Ghost Window never writes application preferences and never captures a screenshot as the primary implementation.
+Ghost Window never writes application preferences and never captures screenshots.
 
 ## How to build
 
@@ -33,7 +34,7 @@ xcodebuild -project GhostWindow.xcodeproj -scheme GhostWindow -configuration Deb
 
 Ad-hoc code signing is enough for local use. Do not enable App Sandbox; private WindowServer calls need an unsandboxed binary.
 
-After building, drag `GhostWindow.app` to `/Applications` if you want Launch at Login to work reliably.
+After building, drag `GhostWindow.app` to `/Applications`. macOS only lists apps reliably in **Privacy & Security → Accessibility** when they live in `/Applications` (or another normal install location), not when run straight from `DerivedData` or `/tmp`.
 
 ## Continuous integration
 
@@ -57,10 +58,14 @@ xcodebuild -project GhostWindow.xcodeproj -scheme GhostWindow -configuration Deb
 
 Ghost Window needs Accessibility **only to identify** the focused window. It does not type, click, or read document contents.
 
-1. Launch Ghost Window once. macOS should prompt.
-2. If it does not: **System Settings → Privacy & Security → Accessibility**.
-3. Enable **Ghost Window**.
-4. Quit and reopen Ghost Window.
+1. Copy the built app to `/Applications` and launch it from there once.
+2. Open **System Settings → Privacy & Security → Accessibility**.
+3. Click **+** and choose `/Applications/GhostWindow.app`. If the app is missing from the picker, press **⌘⇧G** in the open panel and paste that path.
+4. Enable **Ghost Window**, then quit and reopen it.
+
+If you built from Xcode, the product is under `~/Library/Developer/Xcode/DerivedData/.../Build/Products/Debug/GhostWindow.app` — copy that bundle to `/Applications` first. Do not add the `.xcodeproj` or a path inside `DerivedData` directly; TCC tracks the installed `.app` bundle ID (`com.joshmcarthur.GhostWindow`).
+
+macOS ties Accessibility permission to the app’s **code signature**, not just its name. The project is signed with your Apple Development certificate so permission survives normal rebuilds. If you previously granted access to an ad-hoc build (or an older copy), remove **Ghost Window** from the Accessibility list, install the current build to `/Applications`, add it again, and toggle it on.
 
 Until this is granted, ⌘⇧G cannot see the frontmost window and will show:
 
@@ -129,9 +134,9 @@ If a function is renamed, add the new name to the `loadSymbol([...])` list. Pref
 
 ## Limitations
 
-- **SIP / process isolation.** Calling `SLSSetWindowAlpha` from a third-party process for *another* app’s windows has historically worked, and still works inside injected Dock payloads (yabai). On recent SIP-enabled macOS it may return success or still report alpha 1.0 with no visual change. Ghost Window **verifies** the read-back and, if the real window did not change, uses the overlay fallback.
-- Overlay fallback is an **approximation**: a click-through ScreenCaptureKit composite. It does not change the real window. The menu labels it as such. Screen Recording is requested **only** for this path.
-- Fullscreen spaces, Stage Manager, and some Electron / Metal windows may refuse alpha. Ghost Window fails with *This window cannot be made transparent.* It does **not** fake fullscreen with an overlay if the real window cannot be modified.
+- **SIP / process isolation (blocking).** On macOS 26 with SIP enabled, `SLSSetWindowAlpha` / `SLSSetWindowOpacity` return success but WindowServer does not change other apps’ windows. Ghost Window detects this via read-back verification and shows an error in the menu. Disabling SIP or using Dock injection (yabai-style) may be required for real opacity changes; this app implements neither.
+- **No AppleScript or Shortcuts path.** System Events exposes window position, size, and focus — not opacity. Shortcuts’ window actions (Find/Move/Resize Window) do not include transparency. Global “Reduce transparency” in Accessibility settings is unrelated to per-window alpha.
+- Fullscreen spaces, Stage Manager, and some Electron / Metal windows may refuse alpha even when SkyLight writes are allowed.
 - System UI is excluded: Dock, Control Center, Notification Center, menu bar, Ghost Window’s own windows, and similar.
 - A crash or `kill -9` can leave windows faded until Ghost Window is launched again (it persists original alpha and restores on startup and on Quit).
 - Not signed for distribution. Gatekeeper may require a right-click → Open the first time.
@@ -142,7 +147,6 @@ If a function is renamed, add the new name to the `loadSymbol([...])` list. Pref
 - Dynamic loading of a private framework
 - Accessibility used to target other apps’ windows
 - Must not be sandboxed for this technique
-- Overlay path uses Screen Recording
 
 App Review will reject it. Treat it as a personal / experimental tool.
 
@@ -154,7 +158,6 @@ App Review will reject it. Treat it as a personal / experimental tool.
 4. Delete `GhostWindow.app`.
 5. Optional cleanup:
    - **System Settings → Privacy & Security → Accessibility** — remove Ghost Window
-   - **Screen Recording** — remove it if the overlay path was used
    - `~/Library/Application Support/GhostWindow/ghosted-windows.json`
 
 ## Menu
@@ -186,9 +189,7 @@ stderr / unified log, for example:
 ⌘⇧G
   → FrontmostWindowResolver (AX + CGWindowList)
   → WindowExclusions
-  → WindowGhostBackend
-       1. SkyLightBackend   real WindowServer alpha
-       2. OverlayBackend    approximation only if (1) does not apply
+  → SkyLightBackend (real WindowServer alpha)
   → GhostStateStore (original alpha, restore-all, crash recovery)
 ```
 

@@ -1,9 +1,6 @@
 import Foundation
 
-final class SkyLightBackend: WindowGhostBackend {
-    let kind: BackendKind = .skyLight
-    var requiresScreenRecording: Bool { false }
-
+final class SkyLightBackend {
     var isUsable: Bool {
         SkyLightBridge.isAvailable
     }
