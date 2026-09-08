@@ -2,7 +2,6 @@ import AppKit
 import ApplicationServices
 import Foundation
 
-@MainActor
 final class WindowManager: ObservableObject {
     @Published private(set) var ghostedWindowIDs: [UInt32] = []
     @Published private(set) var lastStatus: String = "Idle"

@@ -8,7 +8,6 @@ import ScreenCaptureKit
 /// Used only when `SLSSetWindowAlpha` is missing or WindowServer silently ignores
 /// the alpha write. A click-through overlay composites the window over the content
 /// behind it at the requested opacity. Interaction still goes to the real window.
-@MainActor
 final class OverlayBackend: WindowGhostBackend {
     let kind: BackendKind = .overlay
     var requiresScreenRecording: Bool { true }
@@ -64,7 +63,6 @@ final class OverlayBackend: WindowGhostBackend {
     }
 }
 
-@MainActor
 private final class OverlaySurface {
     var window: WindowReference
     var opacity: Float
